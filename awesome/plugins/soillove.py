@@ -1,0 +1,22 @@
+import requests
+from nonebot import on_command,on_startswith
+from nonebot.rule import to_me
+from nonebot.adapters.cqhttp import Bot, Event, MessageSegment, Message
+import random
+ 
+love = on_startswith("土味情话", priority=3)
+#love = on_keyword("土味情话",priority=3)
+
+# 识别参数 并且给state 赋值
+
+
+@love.handle()
+async def handle_first_receive(bot: Bot, event: Event, state: dict):
+    soillove = await get_soil_sentence()
+    await love.finish(soillove)
+
+async def get_soil_sentence():
+    url = 'https://api.lovelive.tools/api/SweetNothings'
+    res = requests.get(url)
+    content_s = res.text
+    return content_s

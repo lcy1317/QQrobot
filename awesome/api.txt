@@ -1,0 +1,2 @@
+kuakua_url = "https://chp.shadiao.app/api.php?from=sunbelife"
+maren_url = "https://nmsl.shadiao.app/api.php?level=min&lang=zh_cn&from=sunbelife"
